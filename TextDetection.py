@@ -31,7 +31,6 @@ class TextDetection():
             region = img_cv2[y_topLeft:y_botRight, x_topLeft:x_botRight]
 
             if region is not None and region.size > 0:
-                # Phát hiện vùng trắng / nhiễu
                 gray_region = cv2.cvtColor(region, cv2.COLOR_BGR2GRAY)
                 _, thresh = cv2.threshold(gray_region, 240, 255, cv2.THRESH_BINARY)
                 white_ratio = np.sum(thresh == 255) / (thresh.size)
